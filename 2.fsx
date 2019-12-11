@@ -37,6 +37,8 @@ let generateCombinations n : seq<int * int> =
     let range = seq{0..n} 
     range |> Seq.collect(fun i -> range |> Seq.map(fun j -> (i, j)))
 
-generateCombinations 99 |> Seq.find(fun ((x, y)) -> (calculate x y) = 19690720)
+let (noun, verb) = generateCombinations 99 |> Seq.find(fun ((x, y)) -> (calculate x y) = 19690720)
+
+let answer = 100 * noun + verb
 
 
